@@ -33,7 +33,7 @@ export default function FooterCom() {
                   target='_blank'
                   rel='noopener noreferrer'
                 >
-                  Sahand's Blog
+                  Vijay's Blog
                 </Footer.Link>
               </Footer.LinkGroup>
             </div>
@@ -70,7 +70,7 @@ export default function FooterCom() {
             <Footer.Icon href='#' icon={BsFacebook}/>
             <Footer.Icon href='#' icon={BsInstagram}/>
             <Footer.Icon href='#' icon={BsTwitter}/>
-            <Footer.Icon href='https://github.com/sahandghavidel' icon={BsGithub}/>
+            <Footer.Icon href='https://github.com/Vijay-krishnaa' icon={BsGithub}/>
             <Footer.Icon href='#' icon={BsDribbble}/>
 
           </div>
