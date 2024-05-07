@@ -14,7 +14,18 @@ export const updateUser = async (req, res, next) => {
     if (req.body.password.length < 6) {
       return next(errorHandler(400, 'Password must be at least 6 characters'));
     }
-    req.body.password = bcryptjs.hashSync(req.body.password, 10);
+    const validUser = await User.findOne({_id: req.params.userId });
+    if (!validUser) {
+      return next(errorHandler(404, 'User not found'));
+    }
+    const validPassword = bcryptjs.compareSync(req.body.oldPassword, validUser.password);
+    console.log(validPassword);
+    if (validPassword) {
+      req.body.password = bcryptjs.hashSync(req.body.password, 10);
+    } else {
+      return next(errorHandler(400, 'Old password does not match!'));
+    }
+   
   }
   if (req.body.username) {
     if (req.body.username.length < 7 || req.body.username.length > 20) {
